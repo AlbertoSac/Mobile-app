@@ -32,31 +32,42 @@ class MyAppState extends ChangeNotifier {
 class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var appState = context.watch<MyAppState>();
 
     return Scaffold(
-      body: Center(
-        child: Column(mainAxisAlignment: MainAxisAlignment.center,
+      body: Stack(
         children: [
-          Text(
-            'Welcome to Flutter',
-            style: TextStyle(
-              fontSize: 24, // Adjust the font size as needed
-              fontWeight: FontWeight.bold, // Make it bold
+          // Fondo de pantalla
+          Image.asset(
+  '/assets/bground.jpg',
+  fit: BoxFit.cover,
+  width: double.infinity,
+  height: double.infinity,
+),
+          // Contenido
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Bienvenido a Flutter',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 10),
+                Container(
+                  color: Colors.green,
+                  padding: EdgeInsets.all(20),
+                  child: Text(
+                    'Namer App',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ],
             ),
           ),
-          SizedBox(height: 10),
-           Container(
-            color: Colors.green,
-            padding: EdgeInsets.all(20),
-            child: Text(
-              'Hello World',
-              style: TextStyle(color: Colors.white),
-            ),
-           ),
-           
         ],
-      ),
       ),
     );
   }
